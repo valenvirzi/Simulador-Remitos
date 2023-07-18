@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     border-collapse: collapse;
@@ -11,11 +13,16 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-img, picture, video, svg {
+img,
+picture,
+video,
+svg {
     display: block;
     max-width: 100%;
 }
 
-input, label, button {
+input,
+label,
+button {
     cursor: pointer;
 }

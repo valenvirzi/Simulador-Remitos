@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 5rem clamp(0.3rem, 1.2%, 2rem);
-    background-color: rgb(209, 205, 193);
+    background-color: $bg-primary-color;
 
 
     .main {
@@ -45,19 +45,19 @@ body {
 
             .main__client-input {
                 padding: 0rem clamp(0.45rem, 0.9vw, 1.5rem);
-                border: 1px solid rgb(44, 89, 134);
+                border: 1px solid $primary-color;
                 border-radius: 8px;
             }
 
             [type="date"] {
                 margin-left: auto;
                 width: fit-content;
-                padding: 0.15rem 0;
+                padding: 0.15rem;
                 text-align: center;
                 font-weight: 600;
-                border: 1px solid rgb(44, 89, 134);
+                border: 1px solid $primary-color;
                 background-color: rgb(121, 148, 164, 0.6);
-                color: rgb(44, 89, 134);
+                color: $primary-color;
             }
 
             [type="text"] {
@@ -72,16 +72,16 @@ body {
             width: 100%;
             overflow: hidden;
             text-align: center;
-            border: 1px solid rgb(44, 89, 134);
+            border: 1px solid $primary-color;
             border-radius: 8px;
 
             .main__products-h3 {
                 font-size: clamp(1rem, 1.5vw, 1.7rem);
                 line-height: 2.25rem;
                 font-weight: 600;
-                border-bottom: 1px solid rgb(44, 89, 134);
-                border-right: 1px solid rgb(44, 89, 134);
-                color: rgb(44, 89, 134);
+                border-bottom: 1px solid $primary-color;
+                border-right: 1px solid $primary-color;
+                color: $primary-color;
             }
 
             .main__products-item {
@@ -96,7 +96,7 @@ body {
 
             .main__products-item-span {
                 letter-spacing: 1px;
-                border-bottom: 1px solid rgb(44, 89, 134)
+                border-bottom: 1px solid $primary-color
             }
 
             [type="number"],
@@ -106,11 +106,12 @@ body {
                 text-overflow: clip;
                 overflow-wrap: break-word;
                 font-size: clamp(1rem, 1.38vw, 1.7rem);
-                line-height: clamp(1.8rem, 2.65vw, 3.25rem);;
+                line-height: clamp(1.8rem, 2.65vw, 3.25rem);
+                ;
                 font-weight: 500;
                 border: none;
-                border-bottom: 1px solid rgb(44, 89, 134);
-                border-right: 1px solid rgb(44, 89, 134);
+                border-bottom: 1px solid $primary-color;
+                border-right: 1px solid $primary-color;
                 background-color: rgb(255, 255, 255, 0.25);
             }
 
@@ -120,11 +121,11 @@ body {
                 font-size: clamp(1rem, 1.5vw, 1.7rem);
                 font-weight: 600;
                 border: none;
-                border-bottom: 1px solid rgb(44, 89, 134);
+                border-bottom: 1px solid $primary-color;
                 background-color: transparent;
                 color: rgb(0, 0, 0, 0.5);
             }
-            
+
 
             .main__products-item-h3 {
                 grid-column: 1 / 4;
@@ -133,10 +134,10 @@ body {
                 font-weight: 600;
                 line-height: clamp(1.8rem, 2.65vw, 3.25rem);
                 text-align: left;
-                color: rgb(44, 89, 134);
+                color: $primary-color;
                 border: none;
-                border-bottom: 1px solid rgb(44, 89, 134);
-                border-right: 1px solid rgb(44, 89, 134);
+                border-bottom: 1px solid $primary-color;
+                border-right: 1px solid $primary-color;
             }
         }
 
@@ -152,29 +153,28 @@ body {
                 width: 100%;
                 font-size: clamp(1rem, 1.5vw, 1.7rem);
                 font-weight: 600;
-                .main__info-h2 {
-                }
 
-                .main__info-h2-span {
-                }
+                .main__info-h2 {}
+
+                .main__info-h2-span {}
             }
 
             .number {
                 display: none;
                 column-gap: 0.5rem;
-                color: rgb(186, 82, 84);
+                color: $id-primary-color;
             }
 
             .total {
                 justify-content: space-evenly;
                 padding: 0.7rem;
-                border: 1px solid rgb(44, 89, 134);
+                border: 1px solid $primary-color;
                 border-radius: 8px;
                 background-color: rgb(121, 148, 164, 0.6);
 
                 .main__info-h2 {
                     width: auto;
-                    color: rgb(37, 75, 112);
+                    color: $primary-color;
                 }
 
                 .main__info-h2-span {
@@ -196,6 +196,7 @@ body {
                 align-items: center;
                 justify-content: center;
                 gap: 0.5rem;
+
                 .main__payment-label {}
 
                 .main__payment-checkbox {}

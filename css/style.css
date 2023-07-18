@@ -2,7 +2,9 @@
   font-family: "Roboto";
   src: url(../fonts/Roboto-Regular.ttf);
 }
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   border-collapse: collapse;
@@ -15,12 +17,17 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-img, picture, video, svg {
+img,
+picture,
+video,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, label, button {
+input,
+label,
+button {
   cursor: pointer;
 }
 
@@ -72,7 +79,7 @@ body .main .main__client .main__client-input {
 body .main .main__client [type=date] {
   margin-left: auto;
   width: fit-content;
-  padding: 0.15rem 0;
+  padding: 0.15rem;
   text-align: center;
   font-weight: 600;
   border: 1px solid rgb(44, 89, 134);
@@ -176,7 +183,7 @@ body .main .main__info .total {
 }
 body .main .main__info .total .main__info-h2 {
   width: auto;
-  color: rgb(37, 75, 112);
+  color: rgb(44, 89, 134);
 }
 body .main .main__info .total .main__info-h2-span {
   width: fit-content;
