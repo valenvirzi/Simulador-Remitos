@@ -1,6 +1,7 @@
 *, *::before, *::after {
     margin: 0;
     padding: 0;
+    border-collapse: collapse;
     box-sizing: border-box;
     font: inherit;
 }
