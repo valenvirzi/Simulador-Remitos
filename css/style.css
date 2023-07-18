@@ -52,7 +52,7 @@ body .main .main__status {
   background-color: rgba(255, 255, 255, 0.2);
 }
 body .main .main__status .main__status-h2 {
-  font-size: clamp(1rem, 2vw, 1.7rem);
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
   font-weight: 600;
 }
 body .main .main__client {
@@ -72,6 +72,7 @@ body .main .main__client .main__client-input {
 body .main .main__client [type=date] {
   margin-left: auto;
   width: fit-content;
+  padding: 0.15rem 0;
   text-align: center;
   font-weight: 600;
   border: 1px solid rgb(44, 89, 134);
@@ -162,6 +163,7 @@ body .main .main__info .main__info-section {
   font-weight: 600;
 }
 body .main .main__info .number {
+  display: none;
   column-gap: 0.5rem;
   color: rgb(186, 82, 84);
 }
