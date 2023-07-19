@@ -46,7 +46,7 @@ body .main {
   min-height: 120dvh;
   width: 100%;
 }
-body .main .main__status {
+body .main .main__account {
   position: absolute;
   top: -3.5rem;
   left: 1rem;
@@ -58,7 +58,7 @@ body .main .main__status {
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.2);
 }
-body .main .main__status .main__status-h2 {
+body .main .main__account .main__account-h2 {
   font-size: clamp(1.1rem, 2vw, 1.7rem);
   font-weight: 600;
 }

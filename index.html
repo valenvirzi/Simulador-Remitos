@@ -9,19 +9,19 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <meta property="og:title" content="">
+    <meta property="og:title" content="Simulador de Remitos">
     <meta property="og:description" content="">
-    <meta property="og:image" content="img/">
+    <meta property="og:image" content="https://http2.mlstatic.com/D_NQ_NP_948433-MLA30495500601_052019-V.jpg">
     <meta name="author" content="Valentin Virzi">
 </head>
 <body>
     <main class="main">
-        <section class="main__status">
-            <h2 class="main__status-h2">
-                Pagó <span class="main__status-h2-span">TOTAL</span>
+        <section class="main__account">
+            <h2 class="main__account-h2" id="payment">
+                Pagó <span class="main__account-h2-span" id="paymentAmount">TOTAL</span>
             </h2>
-            <h2 class="main__status-h2">
-                Debe <span class="main__status-h2-span">$35000</span>
+            <h2 class="main__account-h2" id="debt">
+                Debe <span class="main__account-h2-span" id="debtAmount">$35000</span>
             </h2>
         </section>
         <section class="main__client">
@@ -71,15 +71,15 @@
             id="productPrice" 
             placeholder="Precio">
             <span class="main__products-item main__products-item-span">$ 15575</span>
-            <button class="main__products-btn" type="button">
+            <button class="main__products-btn" type="button" id="btnAddProduct">
                 + Añadir otro producto...
             </button>
-            <h3 class="main__products-item-h3">Subtotal:</h3>
-            <span class="main__products-item main__products-item-span">$ 75113</span>
-            <h3 class="main__products-item-h3">IVA (21%):</h3>
-            <span class="main__products-item main__products-item-span">$ 15774</span>
-            <h3 class="main__products-item-h3">Saldo anterior:</h3>
-            <span class="main__products-item main__products-item-span">$ 23340</span>
+            <h3 class="main__products-item-h3 subtotal">Subtotal:</h3>
+            <span class="main__products-item main__products-item-span subtotal" id="subtotalAmount">$ 75113</span>
+            <h3 class="main__products-item-h3 iva">IVA (21%):</h3>
+            <span class="main__products-item main__products-item-span iva" id="ivaAmount">$ 15774</span>
+            <h3 class="main__products-item-h3 previousDebt">Saldo anterior:</h3>
+            <span class="main__products-item main__products-item-span previousDebt" id="previousDebtAmount">$ 23340</span>
         </section>
         <section class="main__info">
             <div class="main__info-section number">
@@ -88,15 +88,16 @@
             </div>
             <div class="main__info-section total">
                 <h2 class="main__info-h2">TOTAL: </h2>
-                <span class="main__info-h2-span">$ 90887</span>
+                <span class="main__info-h2-span" id="totalAmount">$ 90887</span>
             </div>
         </section>
         <section class="main__payment">
-            <div class="main__payment-section iva">
+            <div class="main__payment-section">
                 <label class="main__payment-label" for="iva">IVA:</label>
                 <input class="main__payment-checkbox" 
-                id="iva" 
-                type="checkbox">
+                type="checkbox"
+                name="iva"
+                id="iva">
             </div>
             <div class="main__payment-section">
                 <label class="main__payment-label" for="paid">Pagó:</label>
