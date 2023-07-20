@@ -107,6 +107,9 @@ body .main .main__products .main__products-h3 {
   border-right: 1px solid rgb(44, 89, 134);
   color: rgb(44, 89, 134);
 }
+body .main .main__products .main__products-container {
+  grid-column: span 4;
+}
 body .main .main__products .main__products-div {
   grid-column: span 4;
   display: grid;

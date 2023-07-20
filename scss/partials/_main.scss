@@ -84,6 +84,10 @@ body {
                 color: $primary-color;
             }
 
+            .main__products-container {
+                grid-column: span 4;
+            }
+
             .main__products-div {
                 grid-column: span 4;
                 display: grid;
