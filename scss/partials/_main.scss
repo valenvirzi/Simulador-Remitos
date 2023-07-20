@@ -84,6 +84,13 @@ body {
                 color: $primary-color;
             }
 
+            .main__products-div {
+                grid-column: span 4;
+                display: grid;
+                grid-template-columns: clamp(4.025rem, 18.4%, 100rem) clamp(8.38rem, 38.3%, 100rem) clamp(4.17rem, 19.1%, 100rem) clamp(5.3rem, 24.2%, 100rem);
+                grid-template-rows: auto;
+            }
+
             .main__products-item {
                 display: flex;
                 align-items: center;

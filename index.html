@@ -17,10 +17,10 @@
 <body>
     <main class="main">
         <section class="main__account">
-            <h2 class="main__account-h2" id="payment">
+            <h2 class="main__account-h2" id="paymentH2">
                 Pagó <span class="main__account-h2-span" id="paymentAmount">TOTAL</span>
             </h2>
-            <h2 class="main__account-h2" id="debt">
+            <h2 class="main__account-h2" id="debtH2">
                 Debe <span class="main__account-h2-span" id="debtAmount">$35000</span>
             </h2>
         </section>
@@ -55,31 +55,33 @@
             <h3 class="main__products-h3">Producto</h3>
             <h3 class="main__products-h3">Precio</h3>
             <h3 class="main__products-h3">Subtotal</h3>
-            <input class="main__products-item" 
-            type="number" 
-            name="productAmount" 
-            id="productAmount" 
-            placeholder="Cantidad">
-            <input class="main__products-item" 
-            type="text" 
-            name="productName" 
-            id="productName" 
-            placeholder="Producto">
-            <input class="main__products-item" 
-            type="number" 
-            name="productPrice" 
-            id="productPrice" 
-            placeholder="Precio">
-            <span class="main__products-item main__products-item-span">$ 15575</span>
+            <div class="main__products-div">
+                <input class="main__products-item" 
+                type="number" 
+                name="productAmount" 
+                id="productAmount" 
+                placeholder="Cantidad">
+                <input class="main__products-item" 
+                type="text" 
+                name="productName" 
+                id="productName" 
+                placeholder="Producto">
+                <input class="main__products-item" 
+                type="number" 
+                name="productPrice" 
+                id="productPrice" 
+                placeholder="Precio">
+                <span class="main__products-item main__products-item-span">$</span>
+            </div>
             <button class="main__products-btn" type="button" id="btnAddProduct">
                 + Añadir otro producto...
             </button>
             <h3 class="main__products-item-h3 subtotal">Subtotal:</h3>
-            <span class="main__products-item main__products-item-span subtotal" id="subtotalAmount">$ 75113</span>
+            <span class="main__products-item main__products-item-span subtotal" id="subtotalAmount">$</span>
             <h3 class="main__products-item-h3 iva">IVA (21%):</h3>
-            <span class="main__products-item main__products-item-span iva" id="ivaAmount">$ 15774</span>
+            <span class="main__products-item main__products-item-span iva" id="ivaAmount">$</span>
             <h3 class="main__products-item-h3 previousDebt">Saldo anterior:</h3>
-            <span class="main__products-item main__products-item-span previousDebt" id="previousDebtAmount">$ 23340</span>
+            <span class="main__products-item main__products-item-span previousDebt" id="previousDebtAmount">$</span>
         </section>
         <section class="main__info">
             <div class="main__info-section number">
@@ -88,7 +90,7 @@
             </div>
             <div class="main__info-section total">
                 <h2 class="main__info-h2">TOTAL: </h2>
-                <span class="main__info-h2-span" id="totalAmount">$ 90887</span>
+                <span class="main__info-h2-span" id="totalAmount">$</span>
             </div>
         </section>
         <section class="main__payment">
