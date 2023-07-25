@@ -150,6 +150,10 @@ body {
                 border-bottom: 1px solid $primary-color;
                 border-right: 1px solid $primary-color;
             }
+
+            .d-none {
+                display: none;
+            }
         }
 
         .main__info {

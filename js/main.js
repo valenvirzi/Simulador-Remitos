@@ -1,64 +1,74 @@
-let containerDiv,
-  ivaToggle,
-  paidToggle,
-  owesToggle,
-  prevDebtToggle,
-  paymentH2,
-  paymentAmount,
-  debtH2,
-  debtAmount,
-  subtotalAmount,
-  ivaAmount,
-  previousDebtAmount,
-  totalAmount,
-  btnAddProduct;
-containerDiv = document.getElementById("containerDiv");
-ivaToggle = document.getElementById("iva");
-paidToggle = document.getElementById("paid");
-owesToggle = document.getElementById("owes");
-prevDebtToggle = document.getElementById("prevDebt");
-paymentH2 = document.getElementById("paymentH2");
-paymentAmount = document.getElementById("paymentAmount");
-debtH2 = document.getElementById("debtH2");
-debtAmount = document.getElementById("debtAmount");
-subtotalAmount = document.getElementById("subtotalAmount");
-ivaAmount = document.getElementById("ivaAmount");
-previousDebtAmount = document.getElementById("previousDebtAmount");
-totalAmount = document.getElementById("totalAmount");
-btnAddProduct = document.getElementById("btnAddProduct");
+const itemContainerDiv = document.getElementById("itemContainerDiv");
+const ivaToggle = document.getElementById("iva");
+const paidToggle = document.getElementById("paid");
+const owesToggle = document.getElementById("owes");
+const prevDebtToggle = document.getElementById("prevDebt");
+const paymentH2 = document.getElementById("paymentH2");
+const paymentAmount = document.getElementById("paymentAmount");
+const debtH2 = document.getElementById("debtH2");
+const debtAmount = document.getElementById("debtAmount");
+const subtotalAmount = document.getElementById("subtotalAmount");
+const ivaAmount = document.getElementById("ivaAmount");
+const previousDebtAmount = document.getElementById("previousDebtAmount");
+const totalAmount = document.getElementById("totalAmount");
+const btnAddProduct = document.getElementById("btnAddProduct");
+const subtotalDisplay = document.querySelectorAll(".subtotal");
+const ivaDisplay = document.querySelectorAll(".iva");
+const previousDebtDisplay = document.querySelectorAll(".previousDebt");
 
+const newItem = document.createElement("div");
+newItem.classList.add("main__products-div");
+newItem.innerHTML = `
+<input 
+  class="main__products-item" 
+  type="number"
+  placeholder="Cantidad">
+<input 
+  class="main__products-item" 
+  type="text"
+  placeholder="Producto">
+<input 
+  class="main__products-item" 
+  type="number"
+  placeholder="Precio">
+<span class="main__products-item main__products-item-span">
+  $
+</span>
+`;
 
+document.addEventListener("DOMContentLoaded", function () {
+  itemContainerDiv.innerHTML = newItem.innerHTML;
 
-// class Item {
-//   constructor(itemQuantity, itemName, itemPrice, itemSubtotal) {
-//     this.itemQuantity = itemQuantity;
-//     this.itemName = itemName;
-//     this.itemPrice = itemPrice;
-//     itemSubtotal = this.multiply(itemQuantity, itemPrice);
-//   }
+  function toggleDisplayIva() {
+    if (ivaToggle.checked) {
+      ivaDisplay.forEach((element) => element.classList.remove("d-none"));
+      subtotalDisplay.forEach((element) => element.classList.remove("d-none"));
+    } else if (prevDebtToggle.checked) {
+      ivaDisplay.forEach((element) => element.classList.add("d-none"));
+    } else {
+      ivaDisplay.forEach((element) => element.classList.add("d-none"));
+      subtotalDisplay.forEach((element) => element.classList.add("d-none"));
+    }
+  }
 
-//   multiply(itemQuantity, itemPrice) {
-//     let itemSubtotal = itemQuantity * itemPrice;
-//     return itemSubtotal;
-//   }
+  function toggleDisplayPrevDebt() {
+    if (prevDebtToggle.checked) {
+      previousDebtDisplay.forEach((element) =>
+        element.classList.remove("d-none")
+      );
+      subtotalDisplay.forEach((element) => element.classList.remove("d-none"));
+    } else if (ivaToggle.checked) {
+      previousDebtDisplay.forEach((element) => element.classList.add("d-none"));
+    } else {
+      previousDebtDisplay.forEach((element) => element.classList.add("d-none"));
+      subtotalDisplay.forEach((element) => element.classList.add("d-none"));
+    }
+  }
 
-// }
+  ivaToggle.addEventListener("change", toggleDisplayIva);
+  prevDebtToggle.addEventListener("change", toggleDisplayPrevDebt);
+});
 
-// let prod = document.createElement("div");
-// prod.classList.add("main__products-div");
-// prod.innerHTML = `<input class="main__products-item" 
-// type="number"
-// placeholder="Cantidad">
-// <input class="main__products-item" 
-// type="text"
-// placeholder="Producto">
-// <input class="main__products-item" 
-// type="number"
-// placeholder="Precio">
-// <span class="main__products-item main__products-item-span">$</span>`;
-
-// function addChild(prod) {
-//     containerDiv.appendChild(prod);
-// }
-
-// btnAddProduct.addEventListener("click", addChild(prod))
+btnAddProduct.addEventListener(`pointerdown`, function (e) {
+  itemContainerDiv.innerHTML += newItem.innerHTML;
+});

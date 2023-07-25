@@ -165,6 +165,9 @@ body .main .main__products .main__products-item-h3 {
   border-bottom: 1px solid rgb(44, 89, 134);
   border-right: 1px solid rgb(44, 89, 134);
 }
+body .main .main__products .d-none {
+  display: none;
+}
 body .main .main__info {
   width: 100%;
   display: flex;
