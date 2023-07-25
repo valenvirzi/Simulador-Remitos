@@ -214,5 +214,8 @@ body .main .main__payment .main__payment-section {
   justify-content: center;
   gap: 0.5rem;
 }
+body .main .d-none {
+  display: none;
+}
 
 /*# sourceMappingURL=style.css.map */

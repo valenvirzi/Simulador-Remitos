@@ -16,12 +16,12 @@
 </head>
 <body>
     <main class="main">
-        <section class="main__account">
-            <h2 class="main__account-h2" id="paymentH2">
+        <section class="main__account d-none">
+            <h2 class="main__account-h2 d-none" id="paymentH2">
                 Pagó <span class="main__account-h2-span" id="paymentAmount">TOTAL</span>
             </h2>
-            <h2 class="main__account-h2" id="debtH2">
-                Debe <span class="main__account-h2-span" id="debtAmount">$35000</span>
+            <h2 class="main__account-h2 d-none" id="debtH2">
+                Debe <span class="main__account-h2-span" id="debtAmount">35000</span>
             </h2>
         </section>
         <section class="main__client">
@@ -61,11 +61,11 @@
                 + Añadir otro producto...
             </button>
             <h3 class="main__products-item-h3 subtotal d-none">Subtotal:</h3>
-            <span class="main__products-item main__products-item-span subtotal d-none" id="subtotalAmount">$</span>
+            <span class="main__products-item main__products-item-span subtotal d-none" id="subtotalAmount"></span>
             <h3 class="main__products-item-h3 iva d-none">IVA (21%):</h3>
-            <span class="main__products-item main__products-item-span iva d-none" id="ivaAmount">$</span>
-            <h3 class="main__products-item-h3 previousDebt d-none">Saldo anterior:</h3>
-            <span class="main__products-item main__products-item-span previousDebt d-none" id="previousDebtAmount">$</span>
+            <span class="main__products-item main__products-item-span iva d-none" id="ivaAmount"></span>
+            <h3 class="main__products-item-h3 prevDebt d-none">Saldo anterior:</h3>
+            <span class="main__products-item main__products-item-span prevDebt d-none" id="prevDebtAmount"></span>
         </section>
         <section class="main__info">
             <div class="main__info-section number">
@@ -74,7 +74,7 @@
             </div>
             <div class="main__info-section total">
                 <h2 class="main__info-h2">TOTAL: </h2>
-                <span class="main__info-h2-span" id="totalAmount">$</span>
+                <span class="main__info-h2-span" id="totalAmount"></span>
             </div>
         </section>
         <section class="main__payment">

@@ -9,12 +9,12 @@ const debtH2 = document.getElementById("debtH2");
 const debtAmount = document.getElementById("debtAmount");
 const subtotalAmount = document.getElementById("subtotalAmount");
 const ivaAmount = document.getElementById("ivaAmount");
-const previousDebtAmount = document.getElementById("previousDebtAmount");
+const prevDebtAmount = document.getElementById("prevDebtAmount");
 const totalAmount = document.getElementById("totalAmount");
 const btnAddProduct = document.getElementById("btnAddProduct");
 const subtotalDisplay = document.querySelectorAll(".subtotal");
 const ivaDisplay = document.querySelectorAll(".iva");
-const previousDebtDisplay = document.querySelectorAll(".previousDebt");
+const prevDebtDisplay = document.querySelectorAll(".prevDebt");
 
 const newItem = document.createElement("div");
 newItem.classList.add("main__products-div");
@@ -32,7 +32,6 @@ newItem.innerHTML = `
   type="number"
   placeholder="Precio">
 <span class="main__products-item main__products-item-span">
-  $
 </span>
 `;
 
@@ -42,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function toggleDisplayIva() {
     if (ivaToggle.checked) {
       ivaDisplay.forEach((element) => element.classList.remove("d-none"));
+      ivaAmount.innerText = Number(subtotalAmount.innerText) * 0.21;
       subtotalDisplay.forEach((element) => element.classList.remove("d-none"));
     } else if (prevDebtToggle.checked) {
       ivaDisplay.forEach((element) => element.classList.add("d-none"));
@@ -53,14 +53,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function toggleDisplayPrevDebt() {
     if (prevDebtToggle.checked) {
-      previousDebtDisplay.forEach((element) =>
-        element.classList.remove("d-none")
-      );
+      prevDebtDisplay.forEach((element) => element.classList.remove("d-none"));
+      prevDebtAmount.innerText = Number(prompt("Ingrese el saldo anterior:"));
       subtotalDisplay.forEach((element) => element.classList.remove("d-none"));
     } else if (ivaToggle.checked) {
-      previousDebtDisplay.forEach((element) => element.classList.add("d-none"));
+      prevDebtDisplay.forEach((element) => element.classList.add("d-none"));
     } else {
-      previousDebtDisplay.forEach((element) => element.classList.add("d-none"));
+      prevDebtDisplay.forEach((element) => element.classList.add("d-none"));
       subtotalDisplay.forEach((element) => element.classList.add("d-none"));
     }
   }
