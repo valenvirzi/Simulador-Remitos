@@ -99,10 +99,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const itemSubtotal = Array.from(itemSubtotalNodeList);
     const itemQuantityNodeList = document.querySelectorAll(".itemQuantity");
     const itemPriceNodeList = document.querySelectorAll(".itemPrice");
-    itemSubtotalNodeList[btnPressCounter].innerHTML = Math.ceil(Number(
-      itemQuantityNodeList[btnPressCounter].valueAsNumber *
-        itemPriceNodeList[btnPressCounter].valueAsNumber
-    ));
+    itemSubtotalNodeList[btnPressCounter].innerHTML = Math.ceil(
+      Number(
+        itemQuantityNodeList[btnPressCounter].valueAsNumber *
+          itemPriceNodeList[btnPressCounter].valueAsNumber
+      )
+    );
     let total = 0;
     itemSubtotal.forEach((subtotal) => {
       total += Number(subtotal.innerHTML);
@@ -113,8 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function totalCalculation() {
     totalAmount.innerText = Math.ceil(
       Number(subtotalAmount.innerHTML) +
-      Number(ivaAmount.innerHTML) +
-      Number(prevDebtAmount.innerHTML));
+        Number(ivaAmount.innerHTML) +
+        Number(prevDebtAmount.innerHTML)
+    );
   }
 
   function addProduct() {
