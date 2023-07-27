@@ -1,4 +1,4 @@
-const itemContainerDiv = document.getElementById("itemContainerDiv");
+const itemContainerForm = document.getElementById("itemContainerForm");
 const ivaToggle = document.getElementById("iva");
 const paidToggle = document.getElementById("paid");
 const owesToggle = document.getElementById("owes");
@@ -16,28 +16,30 @@ const subtotalDisplay = document.querySelectorAll(".subtotal");
 const ivaDisplay = document.querySelectorAll(".iva");
 const prevDebtDisplay = document.querySelectorAll(".prevDebt");
 const accountSection = document.querySelector(".main__account");
+const itemSubtotalNodeList = document.querySelectorAll(".itemSubtotal");
+const itemSubtotal = Array.from(itemSubtotalNodeList);
+let subtotalArray = [];
 
 const newItem = document.createElement("div");
 newItem.classList.add("main__products-div");
 newItem.innerHTML = `
 <input 
-  class="main__products-item" 
+  class="main__products-item itemQuantity" 
   type="number"
   placeholder="Cantidad">
 <input 
-  class="main__products-item" 
+  class="main__products-item itemName" 
   type="text"
   placeholder="Producto">
 <input 
-  class="main__products-item" 
+  class="main__products-item itemPrice" 
   type="number"
   placeholder="Precio">
-<span class="main__products-item main__products-item-span">
+<span class="main__products-item itemSubtotal main__products-item-span">
 </span>
 `;
 
 document.addEventListener("DOMContentLoaded", function () {
-
   function toggleDisplayAccount() {
     if (paidToggle.checked) {
       accountSection.classList.remove("d-none");
@@ -45,7 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
       paymentAmount.innerText = Number(prompt("Ingrese el monto pagado:"));
       if (Number(paymentAmount.innerText) < Number(totalAmount.innerText)) {
         owesH2.classList.remove("d-none");
-        owesAmount.innerText = (Number(totalAmount.innerText) - Number(paymentAmount.innerText));
+        owesAmount.innerText =
+          Number(totalAmount.innerText) - Number(paymentAmount.innerText);
       }
     } else if (owesToggle.checked) {
       accountSection.classList.remove("d-none");
@@ -59,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
   paidToggle.addEventListener("change", toggleDisplayAccount);
   owesToggle.addEventListener("change", toggleDisplayAccount);
 
-  itemContainerDiv.innerHTML = newItem.innerHTML;
+  itemContainerForm.innerHTML = newItem.innerHTML;
 
   function toggleDisplayIva() {
     if (ivaToggle.checked) {
@@ -68,9 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
       ivaAmount.innerText = Number(subtotalAmount.innerText) * 0.21;
     } else if (prevDebtToggle.checked) {
       ivaDisplay.forEach((element) => element.classList.add("d-none"));
+      ivaAmount.innerHTML = 0;
     } else {
       subtotalDisplay.forEach((element) => element.classList.add("d-none"));
       ivaDisplay.forEach((element) => element.classList.add("d-none"));
+      ivaAmount.innerHTML = 0;
     }
   }
 
@@ -81,16 +86,58 @@ document.addEventListener("DOMContentLoaded", function () {
       prevDebtAmount.innerText = Number(prompt("Ingrese el saldo anterior:"));
     } else if (ivaToggle.checked) {
       prevDebtDisplay.forEach((element) => element.classList.add("d-none"));
+      prevDebtAmount.innerHTML = 0;
     } else {
       subtotalDisplay.forEach((element) => element.classList.add("d-none"));
       prevDebtDisplay.forEach((element) => element.classList.add("d-none"));
+      prevDebtAmount.innerHTML = 0;
     }
   }
 
-  ivaToggle.addEventListener("change", toggleDisplayIva);
-  prevDebtToggle.addEventListener("change", toggleDisplayPrevDebt);
-});
+  let btnPressCounter = 0;
 
-btnAddProduct.addEventListener(`pointerdown`, function (e) {
-  itemContainerDiv.innerHTML += newItem.innerHTML;
+  function itemSubtotalCalculation(itemQuantityArray, itemPriceArray) {
+    itemSubtotal.forEach((item, index) => {
+      item.innerText = Number(itemQuantityArray[index] * itemPriceArray[index]);
+    });
+    let total = 0;
+    itemSubtotal.forEach((subtotal) => {
+      total += Number(subtotal.innerHTML);
+    });
+    subtotalAmount.innerText = total;
+  }
+
+  function totalCalculation() {
+    totalAmount.innerText =
+      Number(subtotalAmount.innerHTML) +
+      Number(ivaAmount.innerHTML) +
+      Number(prevDebtAmount.innerHTML);
+  }
+
+  function addProduct() {
+    itemContainerForm.appendChild(newItem.cloneNode(true));
+  }
+
+  ivaToggle.addEventListener("change", toggleDisplayIva);
+  ivaToggle.addEventListener("change", totalCalculation);
+  prevDebtToggle.addEventListener("change", toggleDisplayPrevDebt);
+  prevDebtToggle.addEventListener("change", totalCalculation);
+
+  btnAddProduct.addEventListener(`pointerdown`, function (e) {
+    const itemQuantityNodeList = document.querySelectorAll(".itemQuantity");
+    const itemQuantity = Array.from(itemQuantityNodeList);
+    const itemPriceNodeList = document.querySelectorAll(".itemPrice");
+    const itemPrice = Array.from(itemPriceNodeList);
+    console.log(itemQuantity);
+    console.log(itemQuantity.map((item) => item.valueAsNumber));
+    let itemQuantityArray = itemQuantity.map((item) => item.valueAsNumber);
+    let itemPriceArray = itemPrice.map((item) => item.valueAsNumber);
+    subtotalArray = itemQuantityArray.map(
+      (value, index) => value * itemPriceArray[index]
+    );
+    btnPressCounter++;
+    addProduct();
+    itemSubtotalCalculation(itemQuantityArray, itemPriceArray);
+    totalCalculation();
+  });
 });
