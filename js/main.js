@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
         owesH2.classList.remove("d-none");
         owesAmount.innerText =
           Number(totalAmount.innerText) - Number(paymentAmount.innerText);
+      } else {
+        owesAmount.innerText = 0;
       }
     } else if (owesToggle.checked) {
       accountSection.classList.remove("d-none");
