@@ -16,8 +16,6 @@ const subtotalDisplay = document.querySelectorAll(".subtotal");
 const ivaDisplay = document.querySelectorAll(".iva");
 const prevDebtDisplay = document.querySelectorAll(".prevDebt");
 const accountSection = document.querySelector(".main__account");
-const itemSubtotalNodeList = document.querySelectorAll(".itemSubtotal");
-const itemSubtotal = Array.from(itemSubtotalNodeList);
 let subtotalArray = [];
 
 const newItem = document.createElement("div");
@@ -68,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (ivaToggle.checked) {
       subtotalDisplay.forEach((element) => element.classList.remove("d-none"));
       ivaDisplay.forEach((element) => element.classList.remove("d-none"));
-      ivaAmount.innerText = Number(subtotalAmount.innerText) * 0.21;
+      ivaAmount.innerText = Math.ceil(Number(subtotalAmount.innerText) * 0.21);
     } else if (prevDebtToggle.checked) {
       ivaDisplay.forEach((element) => element.classList.add("d-none"));
       ivaAmount.innerHTML = 0;
@@ -96,10 +94,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let btnPressCounter = 0;
 
-  function itemSubtotalCalculation(itemQuantityArray, itemPriceArray) {
-    itemSubtotal.forEach((item, index) => {
-      item.innerText = Number(itemQuantityArray[index] * itemPriceArray[index]);
-    });
+  function itemSubtotalCalculation(btnPressCounter) {
+    const itemSubtotalNodeList = document.querySelectorAll(".itemSubtotal");
+    const itemSubtotal = Array.from(itemSubtotalNodeList);
+    const itemQuantityNodeList = document.querySelectorAll(".itemQuantity");
+    const itemPriceNodeList = document.querySelectorAll(".itemPrice");
+    itemSubtotalNodeList[btnPressCounter].innerHTML = Math.ceil(Number(
+      itemQuantityNodeList[btnPressCounter].valueAsNumber *
+        itemPriceNodeList[btnPressCounter].valueAsNumber
+    ));
     let total = 0;
     itemSubtotal.forEach((subtotal) => {
       total += Number(subtotal.innerHTML);
@@ -108,10 +111,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function totalCalculation() {
-    totalAmount.innerText =
+    totalAmount.innerText = Math.ceil(
       Number(subtotalAmount.innerHTML) +
       Number(ivaAmount.innerHTML) +
-      Number(prevDebtAmount.innerHTML);
+      Number(prevDebtAmount.innerHTML));
   }
 
   function addProduct() {
@@ -135,9 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
     subtotalArray = itemQuantityArray.map(
       (value, index) => value * itemPriceArray[index]
     );
-    btnPressCounter++;
     addProduct();
-    itemSubtotalCalculation(itemQuantityArray, itemPriceArray);
+    itemSubtotalCalculation(btnPressCounter);
+    btnPressCounter++;
     totalCalculation();
   });
 });
