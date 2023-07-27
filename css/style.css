@@ -37,6 +37,33 @@ body {
   padding: 5rem clamp(0.5rem, 1.2%, 2rem);
   background-color: rgb(209, 205, 193);
 }
+body .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 2.25rem;
+}
+body .header .header__label {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+body .header .header__input {
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  outline: none;
+}
+body .header .header__input::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+body .header .header__input::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
 body .main {
   position: relative;
   display: flex;

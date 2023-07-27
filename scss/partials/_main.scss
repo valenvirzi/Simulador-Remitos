@@ -4,6 +4,7 @@ body {
     padding: 5rem clamp(0.5rem, 1.2%, 2rem);
     background-color: $bg-primary-color;
 
+    @import "./colorPicker";
 
     .main {
         position: relative;

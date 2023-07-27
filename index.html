@@ -15,6 +15,10 @@
     <meta name="author" content="Valentin Virzi">
 </head>
 <body>
+    <header class="header">
+        <label class="header__label" for="colorPicker">Elige tu color del texto:</label>
+        <input class="header__input" type="color" id="colorPicker">
+    </header>
     <main class="main">
         <section class="main__account d-none">
             <h2 class="main__account-h2 d-none" id="paymentH2">
@@ -25,7 +29,7 @@
             </h2>
         </section>
         <section class="main__client">
-            <input class="main__client-input" 
+            <input class="main__client-input textColor" 
             type="date" 
             name="currentDate" 
             id="currentDate">
@@ -51,29 +55,29 @@
             placeholder="Localidad">
         </section>
         <section class="main__products">
-            <h3 class="main__products-h3">Cant.</h3>
-            <h3 class="main__products-h3">Producto</h3>
-            <h3 class="main__products-h3">Precio</h3>
-            <h3 class="main__products-h3">Subtotal</h3>
+            <h3 class="main__products-h3 textColor">Cant.</h3>
+            <h3 class="main__products-h3 textColor">Producto</h3>
+            <h3 class="main__products-h3 textColor">Precio</h3>
+            <h3 class="main__products-h3 textColor">Subtotal</h3>
             <form class="main__products-div" id="itemContainerForm">
             </form>
             <button class="main__products-btn" type="button" form="itemContainerForm" id="btnAddProduct">
                 + Añadir otro producto...
             </button>
-            <h3 class="main__products-item-h3 subtotal d-none">Subtotal:</h3>
+            <h3 class="main__products-item-h3 subtotal d-none textColor">Subtotal:</h3>
             <span class="main__products-item main__products-item-span subtotal d-none" id="subtotalAmount"></span>
-            <h3 class="main__products-item-h3 iva d-none">IVA (21%):</h3>
+            <h3 class="main__products-item-h3 iva d-none textColor">IVA (21%):</h3>
             <span class="main__products-item main__products-item-span iva d-none" id="ivaAmount"></span>
-            <h3 class="main__products-item-h3 prevDebt d-none">Saldo anterior:</h3>
+            <h3 class="main__products-item-h3 prevDebt d-none textColor">Saldo anterior:</h3>
             <span class="main__products-item main__products-item-span prevDebt d-none" id="prevDebtAmount"></span>
         </section>
         <section class="main__info">
-            <div class="main__info-section number">
-                <h2 class="main__info-h2">ID N°: </h2>
+            <div class="main__info-section number textColor">
+                <h2 class="main__info-h2 textColor">ID N°: </h2>
                 <span class="main__info-h2-span">00001</span>
             </div>
             <div class="main__info-section total">
-                <h2 class="main__info-h2">TOTAL: </h2>
+                <h2 class="main__info-h2 textColor">TOTAL: </h2>
                 <span class="main__info-h2-span" id="totalAmount"></span>
             </div>
         </section>

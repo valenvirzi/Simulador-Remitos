@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 2.25rem;
+    .header__label {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    .header__input {
+        border-radius: 50%;
+        height: 2rem;
+        width: 2rem;
+        border: none;
+        outline: none;
+    }
+    .header__input::-webkit-color-swatch-wrapper {
+        padding: 0; 
+    }
+    .header__input::-webkit-color-swatch {
+        border: none;
+        border-radius: 50%;
+    }
+}

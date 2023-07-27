@@ -1,3 +1,4 @@
+const colorPicker = document.getElementById("colorPicker");
 const itemContainerForm = document.getElementById("itemContainerForm");
 const ivaToggle = document.getElementById("iva");
 const paidToggle = document.getElementById("paid");
@@ -17,6 +18,23 @@ const ivaDisplay = document.querySelectorAll(".iva");
 const prevDebtDisplay = document.querySelectorAll(".prevDebt");
 const accountSection = document.querySelector(".main__account");
 let subtotalArray = [];
+
+function applyThemeColor() {
+  const selectedColor = colorPicker.value;
+  const textStyling = document.getElementsByClassName('textColor');
+  document.body.style.color = selectedColor;
+  for (const element of textStyling) {
+    element.style.color = selectedColor;
+  }
+  const storedColor = {
+    color: selectedColor,
+  };
+  localStorage.setItem("storedColor", JSON.stringify(storedColor));
+}
+
+colorPicker.addEventListener("change", () => {
+  applyThemeColor();
+});
 
 const newItem = document.createElement("div");
 newItem.classList.add("main__products-div");
@@ -38,6 +56,13 @@ newItem.innerHTML = `
 `;
 
 document.addEventListener("DOMContentLoaded", function () {
+  const storedTextColor = localStorage.getItem("storedColor");
+  const parsedTextColor = JSON.parse(storedTextColor);
+  if (parsedTextColor) {
+    colorPicker.value = parsedTextColor.color;
+    applyThemeColor();
+  }
+
   function toggleDisplayAccount() {
     if (paidToggle.checked) {
       accountSection.classList.remove("d-none");
