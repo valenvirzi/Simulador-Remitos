@@ -58,7 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   paidToggle.addEventListener("change", toggleDisplayAccount);
+  paidToggle.addEventListener("change", totalCalculation);
   owesToggle.addEventListener("change", toggleDisplayAccount);
+  owesToggle.addEventListener("change", totalCalculation);
 
   itemContainerForm.innerHTML = newItem.innerHTML;
 
